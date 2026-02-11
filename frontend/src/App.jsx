@@ -1,24 +1,46 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Alerts from "./pages/Alerts";
 import Logs from "./pages/Logs";
-import Reports from "./pages/Reports";
-import Settings from "./pages/Settings";
-import ProtectedRoutes from "./components/ProtectedRoutes";
-import Alert from "./pages/Alert";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-const App = () => (
-  <BrowserRouter>
+function App() {
+  return (
     <Routes>
+      {/* Default route */}
+      <Route path="/" element={<Navigate to="/login" />} />
+
       <Route path="/login" element={<Login />} />
 
-      <Route path="/dashboard" element={<ProtectedRoutes><Dashboard /></ProtectedRoutes>} />
-      <Route path="/alerts" element={<ProtectedRoutes><Alert /></ProtectedRoutes>} />
-      <Route path="/logs" element={<ProtectedRoutes><Logs /></ProtectedRoutes>} />
-      <Route path="/reports" element={<ProtectedRoutes><Reports /></ProtectedRoutes>} />
-      <Route path="/Settings" element={<ProtectedRoutes><Settings /></ProtectedRoutes>} />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/alerts"
+        element={
+          <ProtectedRoute>
+            <Alerts />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/logs"
+        element={
+          <ProtectedRoute>
+            <Logs />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
-  </BrowserRouter>
-);
+  );
+}
 
 export default App;
