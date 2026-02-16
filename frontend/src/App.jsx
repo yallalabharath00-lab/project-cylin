@@ -7,61 +7,61 @@ import Logs from "./pages/Logs";
 import Reports from "./pages/Reports";
 import Settings from "./pages/settings";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/alerts"
-          element={
-            <ProtectedRoute>
-              <Alerts />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoutes>
+            <Dashboard />
+          </ProtectedRoutes>
+        }
+      />
 
-        <Route
-          path="/logs"
-          element={
-            <ProtectedRoute>
-              <Logs />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+        path="/alerts"
+        element={
+          <ProtectedRoutes>
+            <Alerts />
+          </ProtectedRoutes>
+        }
+      />
 
-        <Route
-          path="/reports"
-          element={
-            <ProtectedRoute>
-              <Reports />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+        path="/logs"
+        element={
+          <ProtectedRoutes>
+            <Logs />
+          </ProtectedRoutes>
+        }
+      />
 
-        <Route
-          path="/settings"
-          element={
-            <ProtectedRoute>
-              <Settings />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+      <Route
+        path="/reports"
+        element={
+          <ProtectedRoutes>
+            <Reports />
+          </ProtectedRoutes>
+        }
+      />
+
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoutes>
+            <Settings />
+          </ProtectedRoutes>
+        }
+      />
+    </Routes>
+
   );
 }
 
