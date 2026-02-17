@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     await login(user, pass);
-    navigate("/dashboard");
+    navigate("/Dashboard");
   };
 
   return (
