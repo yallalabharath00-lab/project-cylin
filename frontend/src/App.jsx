@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { Routes, Route } from "react-router-dom"; 
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -11,10 +12,10 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   return (
-
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/login" element={<Login />} />
+    <React.Fragment>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
 
       <Route
         path="/dashboard"
@@ -61,6 +62,7 @@ function App() {
         }
       />
     </Routes>
+    </React.Fragment>
 
   );
 }

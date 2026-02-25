@@ -1,25 +1,25 @@
-import { login } from "../services/authService";
-import { useNavigate } from "react-router-dom";
+import { Input, InputGroup } from "@chakra-ui/react";
 import { useState } from "react";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
-const Login = () => {
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
-  const navigate = useNavigate();
-
-  const handleLogin = async () => {
-    await login(user, pass);
-    navigate("/Dashboard");
-  };
+export function PasswordInput(props) {
+  const [show, setShow] = useState(false);
 
   return (
-    <div>
-      <h2>Secure Login</h2>
-      <input placeholder="Username" onChange={e => setUser(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={e => setPass(e.target.value)} />
-      <button onClick={handleLogin}>Login</button>
-    </div>
+    <InputGroup
+      endElement={
+        <span
+          onClick={() => setShow(!show)}
+          style={{ cursor: "pointer" }}
+        >
+          {show ? <LuEyeOff /> : <LuEye />}
+        </span>
+      }
+    >
+      <Input
+        {...props}
+        type={show ? "text" : "password"}
+      />
+    </InputGroup>
   );
-};
-
-export default Login;
+}

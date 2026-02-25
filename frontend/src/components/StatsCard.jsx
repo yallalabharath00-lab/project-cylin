@@ -1,19 +1,33 @@
-const StatsCard = ({ title, value }) => {
-  return (
-    <div style={styles.card}>
-      <h4>{title}</h4>
-      <h2>{value}</h2>
-    </div>
-  );
+import { Box, Text } from "@chakra-ui/react";
+
+const colorMap = {
+  danger: "red.400",
+  success: "green.400",
+  warning: "orange.400",
+  primary: "cyan.400",
 };
 
-const styles = {
-  card: {
-    padding: "20px",
-    background: "#222",
-    color: "#0f0",
-    borderRadius: "8px",
-  },
+const StatsCard = ({ title, value, type }) => {
+  return (
+    <Box
+      bg="gray.800"
+      p={5}
+      borderRadius="lg"
+      border="1px solid"
+      borderColor="gray.700"
+    >
+      <Text fontSize="sm" color="gray.400">
+        {title}
+      </Text>
+      <Text
+        fontSize="2xl"
+        fontWeight="bold"
+        color={colorMap[type]}
+      >
+        {value}
+      </Text>
+    </Box>
+  );
 };
 
 export default StatsCard;

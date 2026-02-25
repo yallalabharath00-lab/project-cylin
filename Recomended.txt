@@ -3,7 +3,7 @@ frontend
  2. npm install vite@latest - to install vite and live server
  3.npm run dev -to run the react project
 backend
- 1../mvnw spring-boot:run - to run the springboot and mvn
+ 1.  ./mvnw spring-boot:run - to run the springboot and mvn
 
 git commands
  1.git init - to intialize git
